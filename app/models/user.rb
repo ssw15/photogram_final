@@ -14,4 +14,12 @@ class User < ActiveRecord::Base
   has_many :followings_where_follower, :class_name => "Following", :foreign_key => "follower_id"
 
   has_many :followings_where_leader, :class_name => "Following", :foreign_key => "leader_id"
+
+  # current_user.favorite_photos
+  # current_user.timeline
+
+  # has_many :method_name, :through => :previous_association_to_walk_through, :source => :method_on_associated_object_that_fetches_what_you_want
+
+
+
 end
