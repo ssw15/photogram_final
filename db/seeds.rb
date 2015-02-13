@@ -91,4 +91,4 @@ end
 
 puts "There are now #{Photo.count} photos in the database."
 puts "There are now #{Comment.count} comments in the database."
-puts "There are now #{Favoriting.count} comments in the database."
+puts "There are now #{Favoriting.count} favoritings in the database."
