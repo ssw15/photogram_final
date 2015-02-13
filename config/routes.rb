@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :followings
+
   resources :favoritings
 
   resources :comments
