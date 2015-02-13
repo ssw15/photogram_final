@@ -6,4 +6,8 @@ class Photo < ActiveRecord::Base
   has_many :comments
 
   has_many :favoritings
+
+  validates :owner, :presence => true
+
+  validates :image, :presence => true
 end
