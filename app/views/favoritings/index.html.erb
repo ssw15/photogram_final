@@ -1,0 +1,31 @@
+<div class="page-header">
+  <%= link_to new_favoriting_path, :class => 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-plus"></span>
+    New Favoriting
+  <% end %>
+  <h1>Listing favoritings</h1>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+            <th>Photo</th>
+            <th>Favorited by</th>
+            <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= content_tag_for(:tr, @favoritings) do |favoriting| %>
+            <td><%= favoriting.photo %></td>
+            <td><%= favoriting.favorited_by %></td>
+            <td><%= link_to 'Show', favoriting %></td>
+        <td><%= link_to 'Edit', edit_favoriting_path(favoriting) %></td>
+        <td><%= link_to 'Destroy', favoriting, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
+    </tbody>
+  </table>
+</div>
