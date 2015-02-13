@@ -20,8 +20,8 @@
 
     <tbody>
       <%= content_tag_for(:tr, @followings) do |following| %>
-            <td><%= following.follower %></td>
-            <td><%= following.leader %></td>
+            <td><%= following.follower.email %></td>
+            <td><%= following.leader.email %></td>
             <td><%= link_to 'Show', following %></td>
         <td><%= link_to 'Edit', edit_following_path(following) %></td>
         <td><%= link_to 'Destroy', following, method: :delete, data: { confirm: 'Are you sure?' } %></td>

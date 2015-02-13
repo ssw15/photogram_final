@@ -20,8 +20,8 @@
 
     <tbody>
       <%= content_tag_for(:tr, @favoritings) do |favoriting| %>
-            <td><%= favoriting.photo %></td>
-            <td><%= favoriting.favorited_by %></td>
+            <td><%= favoriting.photo.caption %></td>
+            <td><%= favoriting.favorited_by.email %></td>
             <td><%= link_to 'Show', favoriting %></td>
         <td><%= link_to 'Edit', edit_favoriting_path(favoriting) %></td>
         <td><%= link_to 'Destroy', favoriting, method: :delete, data: { confirm: 'Are you sure?' } %></td>
