@@ -20,8 +20,8 @@
         <div class="btn-group btn-group-justified" role="group">
           <%= link_to "Favorite", "", :class => "btn btn-default" %>
           <%= link_to "Unfavorite", "", :class => "btn btn-default" %>
-          <%= link_to "Delete", "", :class => "btn btn-default" %>
-          <%= link_to "Edit", "", :class => "btn btn-default" %>
+          <%= link_to "Edit", edit_photo_url(photo), :class => "btn btn-default" %>
+          <%= link_to "Delete", photo, :method => "delete", :class => "btn btn-default", :data => { :confirm => "Are you sure?" } %>
         </div>
         <ul class="media-list">
           <%= render photo.comments %>
