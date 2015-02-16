@@ -6,7 +6,7 @@
       </div>
       <div class="media-body">
         <h4 class="media-heading"><%= photo.owner.email %></h4>
-        <%= photo.created_at %>
+        <%= time_ago_in_words(photo.created_at) %> ago
       </div>
     </div>
   </div>
@@ -17,6 +17,12 @@
         <p class="lead">
           <%= photo.caption %>
         </p>
+        <div class="btn-group btn-group-justified" role="group">
+          <%= link_to "Favorite", "", :class => "btn btn-default" %>
+          <%= link_to "Unfavorite", "", :class => "btn btn-default" %>
+          <%= link_to "Delete", "", :class => "btn btn-default" %>
+          <%= link_to "Edit", "", :class => "btn btn-default" %>
+        </div>
         <ul class="media-list">
           <%= render photo.comments %>
         </ul>
@@ -24,5 +30,3 @@
     </div>
   </div>
 </div>
-
-
