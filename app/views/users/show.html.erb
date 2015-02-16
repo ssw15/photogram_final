@@ -9,39 +9,25 @@
   <div class="col-sm-offset-2 col-sm-4">
     <ul class="list-group">
       <li class="list-group-item disabled">
-        Leaders (123)
+        Leaders (<%= @user.leaders.count %>)
       </li>
+      <% @user.leaders.each do |user| %>
       <li class="list-group-item">
-        <a href="#">first-leader@example.com</a>
+        <%= link_to user.email, user %>
       </li>
-      <li class="list-group-item">
-        <a href="#">second-leader@example.com</a>
-      </li>
-      <li class="list-group-item">
-        <a href="#">third-leader@example.com</a>
-      </li>
-      <li class="list-group-item">
-        ...
-      </li>
+      <% end %>
     </ul>
   </div>
   <div class="col-sm-4">
     <ul class="list-group">
       <li class="list-group-item disabled">
-        Followers (76)
+        Followers (<%= @user.followers.count %>)
       </li>
+      <% @user.followers.each do |user| %>
       <li class="list-group-item">
-        <a href="#">first-follower@example.com</a>
+        <%= link_to user.email, user %>
       </li>
-      <li class="list-group-item">
-        <a href="#">second-follower@example.com</a>
-      </li>
-      <li class="list-group-item">
-        <a href="#">third-follower@example.com</a>
-      </li>
-      <li class="list-group-item">
-        ...
-      </li>
+      <% end %>
     </ul>
   </div>
 </div>
