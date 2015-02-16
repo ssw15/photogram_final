@@ -1,6 +1,11 @@
 class PhotosController < ApplicationController
   before_action :set_photo, only: [:show, :edit, :update, :destroy]
 
+  def my_photos
+    @photos = current_user.owned_photos
+  end
+
+
   # GET /photos
   # GET /photos.json
   def index
