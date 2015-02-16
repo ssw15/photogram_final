@@ -18,8 +18,13 @@
           <%= photo.caption %>
         </p>
         <div class="btn-group btn-group-justified" role="group">
-          <%= link_to "Favorite", "", :class => "btn btn-default" %>
-          <%= link_to "Unfavorite", "", :class => "btn btn-default" %>
+          <% favoriting = Favoriting.find_by({ :favorited_by_id => current_user.id, :photo_id => photo.id }) %>
+          <% if favoriting.present? %>
+            <%= link_to "Unfavorite", favoriting, :method => "delete", :class => "btn btn-default" %>
+          <% else %>
+            <%= link_to "Favorite", favoritings_url(:favoriting => { :photo_id => photo.id }), :method => "post", :class => "btn btn-default" %>
+          <% end %>
+
           <%= link_to "Edit", edit_photo_url(photo), :class => "btn btn-default" %>
           <%= link_to "Delete", photo, :method => "delete", :class => "btn btn-default", :data => { :confirm => "Are you sure?" } %>
         </div>
