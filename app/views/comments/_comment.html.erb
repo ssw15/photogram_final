@@ -1,0 +1,9 @@
+<li class="media">
+  <div class="media-left">
+    <%= render 'users/avatar', :user => comment.commenter %>
+  </div>
+  <div class="media-body">
+    <h4 class="media-heading"><%= comment.commenter.email %></h4>
+    <%= comment.content %>
+  </div>
+</li>
