@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
 
-  has_many :owned_photos, :class_name => "Photos", :foreign_key => "owner_id"
+  has_many :owned_photos, :class_name => "Photo", :foreign_key => "owner_id"
 
   has_many :comments, :foreign_key => "commenter_id"
 
