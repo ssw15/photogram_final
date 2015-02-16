@@ -1,4 +1,6 @@
 class Photo < ActiveRecord::Base
+  default_scope { order("created_at DESC") }
+
   belongs_to :owner, :class_name => "User"
 
   mount_uploader :image, ImageUploader
