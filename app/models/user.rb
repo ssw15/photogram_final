@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
   has_many :comments, :foreign_key => "commenter_id"
 
   has_many :favoritings, :foreign_key => "favorited_by_id"
+  has_many :favorite_photos, :through => :favoritings, :source => :photo
 
   has_many :followings_where_follower, :class_name => "Following", :foreign_key => "follower_id"
 

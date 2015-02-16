@@ -5,6 +5,10 @@ class PhotosController < ApplicationController
     @photos = current_user.owned_photos
   end
 
+  def my_favorites
+    @photos = current_user.favorite_photos
+  end
+
 
   # GET /photos
   # GET /photos.json
