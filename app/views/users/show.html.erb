@@ -1,4 +1,47 @@
 <div class="page-header">
-  <h1>Users#show</h1>
+  <h1>
+    <%= render 'avatar', :user => @user %>
+    <%= @user.email %>
+  </h1>
 </div>
-<p>Find me in app/views/users/show.html.erb</p>
+
+<div class="row">
+  <div class="col-sm-offset-2 col-sm-4">
+    <ul class="list-group">
+      <li class="list-group-item disabled">
+        Leaders (123)
+      </li>
+      <li class="list-group-item">
+        <a href="#">first-leader@example.com</a>
+      </li>
+      <li class="list-group-item">
+        <a href="#">second-leader@example.com</a>
+      </li>
+      <li class="list-group-item">
+        <a href="#">third-leader@example.com</a>
+      </li>
+      <li class="list-group-item">
+        ...
+      </li>
+    </ul>
+  </div>
+  <div class="col-sm-4">
+    <ul class="list-group">
+      <li class="list-group-item disabled">
+        Followers (76)
+      </li>
+      <li class="list-group-item">
+        <a href="#">first-follower@example.com</a>
+      </li>
+      <li class="list-group-item">
+        <a href="#">second-follower@example.com</a>
+      </li>
+      <li class="list-group-item">
+        <a href="#">third-follower@example.com</a>
+      </li>
+      <li class="list-group-item">
+        ...
+      </li>
+    </ul>
+  </div>
+</div>
