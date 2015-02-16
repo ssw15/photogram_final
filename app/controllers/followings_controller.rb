@@ -25,10 +25,11 @@ class FollowingsController < ApplicationController
   # POST /followings.json
   def create
     @following = Following.new(following_params)
+    @following.follower = current_user
 
     respond_to do |format|
       if @following.save
-        format.html { redirect_to @following, notice: 'Following was successfully created.' }
+        format.html { redirect_to :back, notice: 'Following was successfully created.' }
         format.json { render :show, status: :created, location: @following }
       else
         format.html { render :new }
@@ -56,7 +57,7 @@ class FollowingsController < ApplicationController
   def destroy
     @following.destroy
     respond_to do |format|
-      format.html { redirect_to followings_url, notice: 'Following was successfully destroyed.' }
+      format.html { redirect_to :back, notice: 'Following was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

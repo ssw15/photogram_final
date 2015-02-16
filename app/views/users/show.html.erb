@@ -2,8 +2,12 @@
   <h1>
     <%= render 'avatar', :user => @user %>
     <%= @user.email %>
-    <%= link_to "Follow", "", :class => "btn btn-default" %>
-    <%= link_to "Unfollow", "", :class => "btn btn-default" %>
+    <% following = Following.find_by({ :follower_id => current_user.id, :leader_id => @user.id }) %>
+    <% if following.present? %>
+      <%= link_to "Unfollow", following, :method => "delete", :class => "btn btn-default" %>
+    <% else %>
+      <%= link_to "Follow", followings_url(:following => { :leader_id => @user.id }), :method => "post", :class => "btn btn-default" %>
+    <% end %>
   </h1>
 </div>
 
