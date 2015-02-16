@@ -18,6 +18,8 @@ class User < ActiveRecord::Base
   has_many :followings_where_leader, :class_name => "Following", :foreign_key => "leader_id"
   has_many :followers, :through => :followings_where_leader, :source => :follower
 
+  has_many :timeline, :through => :leaders, :source => :owned_photos
+
   # current_user.favorite_photos
   # current_user.timeline
 
