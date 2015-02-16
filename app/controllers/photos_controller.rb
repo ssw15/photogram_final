@@ -9,7 +9,7 @@ class PhotosController < ApplicationController
   # GET /photos
   # GET /photos.json
   def index
-    @photos = Photo.all
+    @photos = Photo.page(params[:page])
   end
 
   # GET /photos/1
