@@ -25,6 +25,9 @@ class User < ActiveRecord::Base
 
   # has_many :method_name, :through => :previous_association_to_walk_through, :source => :method_on_associated_object_that_fetches_what_you_want
 
+  def admin?
+    return self.email == "a@example.com"
+  end
 
 
 end

@@ -25,13 +25,26 @@
             <%= link_to "Favorite", favoritings_url(:favoriting => { :photo_id => photo.id }), :method => "post", :class => "btn btn-default" %>
           <% end %>
 
-          <%= link_to "Edit", edit_photo_url(photo), :class => "btn btn-default" %>
-          <%= link_to "Delete", photo, :method => "delete", :class => "btn btn-default", :data => { :confirm => "Are you sure?" } %>
+          <% if current_user == photo.owner %>
+            <%= link_to "Edit", edit_photo_url(photo), :class => "btn btn-default" %>
+            <%= link_to "Delete", photo, :method => "delete", :class => "btn btn-default", :data => { :confirm => "Are you sure?" } %>
+          <% end %>
         </div>
         <ul class="media-list">
           <%= render photo.comments %>
+
+          <li class="list-group-item">
+            <%= form_for Comment.new(:photo_id => photo.id) do |f| %>
+              <%= f.hidden_field :photo_id %>
+              <%= f.text_field :content, :class => "form-control", :placeholder => "Add a comment" %>
+            <% end %>
+          </li>
         </ul>
       </div>
     </div>
   </div>
 </div>
+
+
+
+

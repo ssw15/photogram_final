@@ -1,6 +1,14 @@
 class PhotosController < ApplicationController
   before_action :set_photo, only: [:show, :edit, :update, :destroy]
 
+  before_action :authorize_user, :only => [:edit, :update, :destroy]
+
+  def authorize_user
+    unless current_user == @photo.owner || current_user.admin?
+      redirect_to root_url, :alert => "Not authorized for that."
+    end
+  end
+
   def my_timeline
     @photos = current_user.timeline
   end
