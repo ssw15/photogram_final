@@ -17,6 +17,7 @@
         <p class="lead">
           <%= photo.caption %>
         </p>
+        <p>Favorites: <%= photo.favoritings_count %></p>
         <div class="btn-group btn-group-justified" role="group">
           <% favoriting = Favoriting.find_by({ :favorited_by_id => current_user.id, :photo_id => photo.id }) %>
           <% if favoriting.present? %>
