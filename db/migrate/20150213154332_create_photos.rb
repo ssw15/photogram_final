@@ -6,6 +6,6 @@ class CreatePhotos < ActiveRecord::Migration
 
       t.timestamps null: false
     end
-    add_foreign_key :photos, :owners
+    add_foreign_key :photos, :users, :column => "owner_id"
   end
 end
