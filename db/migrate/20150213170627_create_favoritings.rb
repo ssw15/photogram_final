@@ -7,6 +7,6 @@ class CreateFavoritings < ActiveRecord::Migration
       t.timestamps null: false
     end
     add_foreign_key :favoritings, :photos
-    add_foreign_key :favoritings, :favorited_bies
+    add_foreign_key :favoritings, :users, :column => "favorited_by_id"
   end
 end
